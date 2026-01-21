@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. PAYMENT SECURITY (KILL SWITCH)
+    // 1. Kill Switch
     var expiryDate = new Date('2026-02-15'); 
-    var today = new Date();
-
-    if (today > expiryDate) {
-        document.body.innerHTML = '<div style="text-align:center; padding:100px; font-family:sans-serif; background:#fff; height:100vh;">' +
-            '<h1 style="color:red;">Site Maintenance: Design Service Suspended</h1>' +
-            '<p>Please contact the developer to restore services.</p></div>';
-        return; // Yahan se script ruk jayegi agar date nikal gayi hai
+    if (new Date() > expiryDate) {
+        document.body.innerHTML = '<h1 style="text-align:center;margin-top:100px;">Service Suspended</h1>';
+        return;
     }
 
-    // 2. BUTTONS KA STRUCTURE
+    // 2. Button HTML
     var btnHTML = `
         <div class='tg-container'>
             <a class='tg-btn tg-blue' href='https://t.me/agrodastak' target='_blank'>
@@ -21,13 +17,15 @@ document.addEventListener("DOMContentLoaded", function() {
             </a>
         </div>`;
 
-    // 3. INSERT BUTTONS IN BLOGGER
-    // Pehle purane containers ko dhundta hai, phir target ID ko
-    var target = document.getElementById('target-container'); 
+    // 3. Smart Positioning
+    var target = document.getElementById('target-container');
     if (target) {
         target.innerHTML = btnHTML;
     } else {
-        // Agar ID nahi milti toh fallback: Body ke shuruat mein daal dega
-        document.body.insertAdjacentHTML('afterbegin', btnHTML);
+        // Agar ID nahi milti, toh 'Agriculture Quizzes' wale section ke upar auto-insert karega
+        var quizSection = document.querySelector('.section-box') || document.querySelector('.main');
+        if (quizSection) {
+            quizSection.insertAdjacentHTML('beforebegin', btnHTML);
+        }
     }
 });
