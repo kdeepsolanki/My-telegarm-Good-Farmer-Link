@@ -1,0 +1,74 @@
+/* Container to keep buttons neat */
+.tg-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Common Button Style */
+.tg-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding: 16px !important;
+    border-radius: 15px !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    color: white !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Blue Button Style */
+.tg-blue {
+    background: #24A1DE !important;
+    box-shadow: 0 4px 15px rgba(36, 161, 222, 0.3) !important;
+}
+.tg-blue:hover {
+    background: #1d82b3 !important;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(36, 161, 222, 0.5) !important;
+}
+
+/* --- ORANGE GLASS EFFECT --- */
+.tg-orange-glass {
+    background: rgba(255, 165, 0, 0.7) !important; /* Semi-transparent orange */
+    backdrop-filter: blur(10px) !important; /* Blurs the background behind button */
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Thin glass edge */
+    box-shadow: 0 8px 32px rgba(255, 165, 0, 0.2) !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.tg-orange-glass:hover {
+    background: rgba(255, 165, 0, 0.9) !important;
+    transform: translateY(-4px) scale(1.02);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 12px 40px rgba(255, 165, 0, 0.4) !important;
+}
+
+/* Shine Animation for Glass Effect */
+.tg-orange-glass::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.tg-orange-glass:hover::before {
+    left: 125%;
+}
+
+/* Click effect */
+.tg-btn:active {
+    transform: scale(0.95) !important;
+}
