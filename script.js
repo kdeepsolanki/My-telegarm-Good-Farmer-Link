@@ -18,3 +18,24 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.style.background = '#ffffff';
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Check karein ki kya site block karni hai (Kill Switch)
+    var expiryDate = new Date('2026-02-15'); 
+    var today = new Date();
+
+    if (today > expiryDate) {
+        document.body.innerHTML = '<h1 style="text-align:center;margin-top:100px;">Service Suspended</h1>';
+        return; // Aage ka code nahi chalega
+    }
+
+    // 2. Agar payment ho gayi hai, toh buttons automatic insert karein
+    var btnHTML = `
+        <div class='tg-container'>
+            <a class='tg-btn tg-blue' href='LINK_1'>Join Blue</a>
+            <a class='tg-btn tg-orange-glass' href='LINK_2'>Join Orange</a>
+        </div>`;
+    
+    // Ise site ke kisi khaas section mein daalne ke liye (Jaise Footer ya Post ke baad)
+    document.body.insertAdjacentHTML('beforeend', btnHTML);
+});
