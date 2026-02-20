@@ -1,3 +1,8 @@
+/* Hide all Telegram buttons */
+.tg-btn {
+    display: none !important;
+}
+
 /* Container to keep buttons neat */
 .tg-container {
     padding: 10px;
