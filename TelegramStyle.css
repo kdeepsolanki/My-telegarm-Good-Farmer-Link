@@ -1,3 +1,30 @@
+/* Hide original Telegram buttons */
+.tg-container {
+    display: none !important;
+}
+
+/* Show your custom blinking Telegram message */
+body::before {
+    content: "कृपया Agro Dastak Telegram channel को जॉइन करे : t.me/agrodastak";
+    display: block;
+    background: #0088cc;
+    color: white;
+    padding: 16px;
+    margin: 10px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    animation: blinkAnim 1s infinite;
+}
+
+/* Blink animation */
+@keyframes blinkAnim {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 /* Hide all Telegram buttons */
 .tg-btn {
     display: none !important;
